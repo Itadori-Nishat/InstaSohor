@@ -15,21 +15,23 @@ class _ShakeToIncreaseState extends State<ShakeToIncrease> {
   @override
   Widget build(BuildContext context) {
     ShakeDetector.autoStart(
+      shakeThresholdGravity: 3,
+        minimumShakeCount: 1,
         onPhoneShake: (){
           setState(() {
-            shakecounter++;
+            shakecounter ++;
           });
         }
     );
     return Scaffold(
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text("Shake to increase"),
+            Text("Shake to • increase"),
             Text("$shakecounter",style: TextStyle(
-              fontSize: 25
+              fontSize: 30, fontWeight: FontWeight.bold
             ),),
           ],
         ),
