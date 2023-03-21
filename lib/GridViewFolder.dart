@@ -6,21 +6,32 @@ class GridViewPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 6.0),
-      child: MasonryGridView.builder(
-        gridDelegate: SliverSimpleGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,),
-        itemCount: 12,
-        itemBuilder: (BuildContext context, int index) {
-          return Padding(
-            padding: const EdgeInsets.all(6.0),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(5),
-                child: Image.asset("img" + (index + 1).toString() +".jpg")),
-          );
-        },
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.teal,
+        title: Text("Grid View App Page"),
+      ),
+      body: Column(
+        children: [
+          Expanded(
+            child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 6.0),
+            child: MasonryGridView.builder(
+              gridDelegate: SliverSimpleGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,),
+              itemCount: 12,
+              itemBuilder: (BuildContext context, int index) {
+                return Padding(
+                  padding: const EdgeInsets.all(6.0),
+                  child: ClipRRect(
+                      borderRadius: BorderRadius.circular(5),
+                      child: Image.asset("img" + (index + 1).toString() +".jpg")),
+                );
+              },
 
+            ),
+        ),
+          )],
       ),
     );
   }
