@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:untitledsadfawdsfdfasdf/GridViewFolder.dart';
 import 'package:untitledsadfawdsfdfasdf/Shake%20Home.dart';
 
 void main() {
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.grey,
       ),
-      home: ShakeToIncrease(),
+      home: GridViewPage(),
     );
   }
 }
