@@ -6,7 +6,7 @@ class QrCode extends StatelessWidget {
   QrCode({Key? key}) : super(key: key);
 
   String data =
-      'https://www.instagram.com/kuhelika_92/';
+      'https://www.instagram.com/phox_nishat/';
 
   Color color1 = Color(0xFFE06A7E);
   Color color2 = Color(0xFFE54D34);
@@ -49,14 +49,22 @@ class QrCode extends StatelessWidget {
                       toastLength: Toast.LENGTH_SHORT
                   );
                 },
-                child: Container(
-                  height: 40,
-                  width: 40,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.white
-                  ),
-                  child: Icon(Icons.camera_alt_outlined, color: Colors.black,),
+                child: Row(
+                  children: [
+                    Text("Scan others",style: TextStyle(
+                      fontWeight: FontWeight.w500
+                    ),),
+                    SizedBox(width: 10,),
+                    Container(
+                      height: 40,
+                      width: 40,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.white
+                      ),
+                      child: Icon(Icons.camera_alt_outlined, color: Colors.black,),
+                    ),
+                  ],
                 ),
               ),
             )
@@ -68,12 +76,43 @@ class QrCode extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Center(
-              child: Card(
-                child: QrImage(
-                  data: data,
-                  version: QrVersions.auto,
-                  size: 300.0,
-                ),
+              child: Stack(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(80.0),
+                    child: QrImage(
+                      dataModuleStyle: QrDataModuleStyle(
+                        color: Colors.red,
+
+                      ),
+                      eyeStyle: QrEyeStyle(
+                        color: Colors.red
+                      ),
+                      gapless: false,
+                      backgroundColor: Colors.white,
+                      data: data,
+                      version: QrVersions.auto,
+                    ),
+                  ),
+                  Positioned.fill(
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        width: 50.0,
+                        height: 50.0,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          image: DecorationImage(
+                            image: AssetImage('Assets/img11.jpg',),
+                            opacity: 0.7,
+                            fit: BoxFit.contain,
+                          ),
+                          shape: BoxShape.circle,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
             SizedBox(height: 20,),
