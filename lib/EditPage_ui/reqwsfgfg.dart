@@ -1,54 +1,83 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 
-class MyFormPage extends StatefulWidget {
+class FirstPage extends StatefulWidget {
   @override
-  _MyFormPageState createState() => _MyFormPageState();
+  _FirstPageState createState() => _FirstPageState();
 }
 
-class _MyFormPageState extends State<MyFormPage> {
-  final _formKey = GlobalKey<FormState>();
-  String _name = '';
-  bool hasAccount = true;
+class _FirstPageState extends State<FirstPage> {
+
+  String _dataFromSecondPage = '';
+
+  void _handleDataFromSecondPage(String data) {
+    setState(() {
+      _dataFromSecondPage = data;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Switch Account'),
+        title: Text('First Page'),
       ),
-      body: hasAccount
-          ? Column(
-        children: [
-          // Display account information
-          Text('Account Name: John Doe'),
-          Text('Account Number: XXXXXXXX'),
-          // Add a switch account button
-          ElevatedButton(
-            onPressed: () {
-              // Logic to switch account
-              Fluttertoast.showToast(msg: "switch account");
-            },
-            child: Text('Switch Account'),
-          ),
-        ],
-      )
-          : Column(
-        children: [
-          // Display add account option
-          Text('No account found'),
-          // Add an add account button
-          ElevatedButton(
-            onPressed: () {
-              // Logic to add account
-              print('Add Account');
-            },
-            child: Text('Add Account'),
-          ),
-        ],
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(_dataFromSecondPage),
+            ElevatedButton(
+              onPressed: () async {
+                final data = await Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => SecondPage(),
+                  ),
+                );
+                _handleDataFromSecondPage(data);
+              },
+              child: Text('Second Page data:'),
+            ),
+          ],
+        ),
       ),
     );
   }
 }
 
 
+class SecondPage extends StatelessWidget {
+  final _textController = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          onPressed: (){Navigator.pop(context, _textController.text);}, icon: Icon(Icons.arrow_back_ios_outlined),
+        ),
+        title: Text('Second Page'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            TextField(
+              controller: _textController,
+              decoration: InputDecoration(
+                labelText: 'Enter data',
+                border: OutlineInputBorder(),
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pop(context, _textController.text);
+              },
+              child: Text('Return Data'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

@@ -40,7 +40,7 @@ class _EditProfileState extends State<EditProfile> {
                 if(_formKey.currentState!.validate()) {
                   Navigator.push(
                       context, MaterialPageRoute(builder: (context) =>
-                      GridViewPage(name: _name.text, username: _username.text, bio: _bio.text, addlink: _addlink.text,)));
+                      GridViewPage(name: _username.text,)));
                 }
               },
               icon: Icon(Icons.check,size: 30,), color: Colors.teal,)
@@ -79,8 +79,8 @@ class _EditProfileState extends State<EditProfile> {
                   ),
                 ),
 
-
                 TextFormField(
+                  textCapitalization: TextCapitalization.sentences,
                   controller: _username,
                   validator: (value) {
                     if (value == null || value.isEmpty) {

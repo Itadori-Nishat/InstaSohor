@@ -7,10 +7,10 @@ import 'package:untitledsadfawdsfdfasdf/ShareProfile_qr%20code.dart';
 
 
 class GridViewPage extends StatelessWidget {
-  String username, name, bio, addlink;
-  GridViewPage({Key? key, required this.name, required this.username,required this.bio, required this.addlink}) : super(key: key);
-
+  String name;
+  GridViewPage({Key? key, required this.name}) : super(key: key);
   final String img = "Assets/img5.jpg";
+  final hightlightList = List<String>.generate(10, (i) => "Name ${i + 1}");
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class GridViewPage extends StatelessWidget {
           children: [
             Icon(Icons.lock_outline, color: Colors.black, size: 18,),
             SizedBox(width: 5,),
-            Text("$username", style: TextStyle(
+            Text(name, style: TextStyle(
                 color: Colors.black,
                 fontWeight: FontWeight.w600
             ),),
@@ -90,16 +90,16 @@ class GridViewPage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('${name}', style: TextStyle(
+                  Text('nick name', style: TextStyle(
                     fontWeight: FontWeight.w500,
                     fontSize: 16
                   ),),
                   SizedBox(height: 5,),
-                  Text("$bio", style: TextStyle(
+                  Text("", style: TextStyle(
                     color: Colors.black
                   ),),
                   SizedBox(height: 5,),
-                  Text("$addlink")
+                  Text("Link here")
                 ],
               ),
             ),
@@ -139,7 +139,7 @@ class GridViewPage extends StatelessWidget {
                     ),
                   ),),
                 ElevatedButton(onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => MyFormPage()));
+                  // Navigator.push(context, MaterialPageRoute(builder: (context) => MyPage()));
                 },
                   style: ButtonStyle(
                       foregroundColor: MaterialStatePropertyAll(Colors.black),
@@ -149,39 +149,37 @@ class GridViewPage extends StatelessWidget {
               ],
             ),
             ///Add highlight
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10.0),
-              child: Column(
-                children: [
-                  Container(
-                    height: 60,
-                    width: 60,
-                    decoration: BoxDecoration(
-                      color: Colors.grey.shade300,
-                      shape: BoxShape.circle
-                    ),
-                    child: Icon(Icons.add),
-                  ),
-                  SizedBox(height: 5,),
-                  GestureDetector(
-                    onTap: (){
-                      Fluttertoast.showToast(msg: "Added");
-                    },
-                      child: Text("Add new")),
-                ],
-              ),
-            ),
+            // Padding(
+            //   padding: const EdgeInsets.symmetric(vertical: 10.0),
+            //   child: Column(
+            //     children: [
+            //       Container(
+            //         height: 60,
+            //         width: 60,
+            //         decoration: BoxDecoration(
+            //           color: Colors.grey.shade300,
+            //           shape: BoxShape.circle
+            //         ),
+            //         child: Icon(Icons.add),
+            //       ),
+            //       SizedBox(height: 5,),
+            //       GestureDetector(
+            //         onTap: (){
+            //           Fluttertoast.showToast(msg: "Added");
+            //         },
+            //           child: Text("Add new")),
+            //     ],
+            //   ),
+            // ),
 
-            SizedBox(
-              height: 70,
-              child: Expanded(
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 10,
-                  itemBuilder: (BuildContext context, int index) {
-                    return Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                      child: Container(
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
                         height: 65,
                         width: 65,
                         decoration: BoxDecoration(
@@ -190,10 +188,44 @@ class GridViewPage extends StatelessWidget {
                         ),
                         child: Icon(Icons.add),
                       ),
-                    );
-                  },
-
-                ),
+                      SizedBox(height: 5,),
+                      GestureDetector(
+                          onTap: (){
+                            Fluttertoast.showToast(msg: "Added");
+                          },
+                          child: Text("Add new")),
+                    ],
+                  ),
+                  Row(
+                    children: List.generate(hightlightList.length, (index) {
+                      return Padding(
+                        padding: const EdgeInsets.only(left: 10.0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              height: 65,
+                              width: 65,
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  fit: BoxFit.cover,
+                                    image: AssetImage("Assets/img" + (index + 1).toString() + ".jpg")),
+                                  color: Colors.grey.shade300,
+                                  shape: BoxShape.circle
+                              ),),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            SizedBox(
+                                width: 80,
+                                child: Text(hightlightList[index],textAlign: TextAlign.center,
+                                  overflow: TextOverflow.ellipsis,)),
+                          ],
+                        ),
+                      );
+                    }),
+                  )
+                ],
               ),
             ),
 
