@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-
-import '../GridViewFolder.dart';
 import 'Edit profile.dart';
 class EditName extends StatefulWidget {
   const EditName({Key? key}) : super(key: key);

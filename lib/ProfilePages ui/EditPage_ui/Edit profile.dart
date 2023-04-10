@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:untitledsadfawdsfdfasdf/EditPage_ui/ProfilePagepage.dart';
-import 'package:untitledsadfawdsfdfasdf/GridViewFolder.dart';
+import 'package:untitledsadfawdsfdfasdf/ProfilePages%20ui/ProfilePage.dart';
 
 
 class EditProfile extends StatefulWidget {
@@ -21,8 +20,7 @@ class _EditProfileState extends State<EditProfile> {
   final _formKey = GlobalKey<FormState>();
 
   final String img = "Assets/img1.jpg";
-  Image? image = Image.asset("Assets/img1.jpg");
-  Image defaultImage = Image.asset("Assets/img10.jpg");
+  Image? image = Image.asset("Assets/img10.jpg", fit: BoxFit.cover,);
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +48,7 @@ class _EditProfileState extends State<EditProfile> {
                 if(_formKey.currentState!.validate()) {
                   Navigator.push(
                       context, MaterialPageRoute(builder: (context) =>
-                      GridViewPage(username: _username.text,userimg: image,)));
+                      ProfileGridViewPage(username: _username.text,userimg: image,)));
                 }
 
               },
@@ -76,9 +74,7 @@ class _EditProfileState extends State<EditProfile> {
                       ),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(50),
-                        child: image != null
-                            ? image
-                            : defaultImage,
+                        child: image,
                       ),
                     ),
                     ///Edit picture

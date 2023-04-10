@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:untitledsadfawdsfdfasdf/GridViewFolder.dart';
+import 'package:untitledsadfawdsfdfasdf/ProfilePages%20ui/ProfilePage.dart';
 import 'package:flutter/services.dart';
+import 'package:untitledsadfawdsfdfasdf/Bottom%20Nav%20Bar/InstaSohorMainHomePage.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home: GridViewPage(),
+      home: InstaSohorMainHomePage(),
     );
   }
 }

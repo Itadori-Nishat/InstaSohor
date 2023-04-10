@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.untitledsadfawdsfdfasdf">
    <application
-        android:label="untitledsadfawdsfdfasdf"
+        android:label="Instasohor"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
