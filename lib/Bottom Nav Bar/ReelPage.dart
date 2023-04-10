@@ -10,6 +10,12 @@ class InstaReelPage extends StatefulWidget {
 class _InstaReelPageState extends State<InstaReelPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: PageView(
+        controller: PageController(
+          initialPage: 3
+        ),
+      ),
+    );
   }
 }

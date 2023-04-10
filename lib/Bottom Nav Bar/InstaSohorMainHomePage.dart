@@ -18,8 +18,8 @@ class _InstaSohorMainHomePageState extends State<InstaSohorMainHomePage> {
     });
   }
   final List _pages = [
-    InstaHomePage(),
-    InstaReelPage(),
+    const InstaHomePage(),
+    const InstaReelPage(),
     ProfileGridViewPage(),
 
   ];
@@ -29,11 +29,12 @@ class _InstaSohorMainHomePageState extends State<InstaSohorMainHomePage> {
     return Scaffold(
       body: _pages[_currentPage],
       bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: Colors.black,
         currentIndex: _currentPage,
         onTap: _selectedPage,
         items: [
-          BottomNavigationBarItem(icon: const Icon(Icons.home, size: 25,), label: "Home", backgroundColor: Colors.teal.shade100),
-          BottomNavigationBarItem(icon: const Icon(Icons.list, size: 25,), label: "List", backgroundColor: Colors.teal.shade400),
+          BottomNavigationBarItem(icon: const Icon(Icons.home, size: 25,), label: "Home", backgroundColor: Colors.black),
+          BottomNavigationBarItem(icon: const Icon(Icons.video_file_outlined, size: 25,), label: "Reel", backgroundColor: Colors.teal.shade400),
           BottomNavigationBarItem(icon: const Icon(Icons.person, size: 25,), label: "Profile", backgroundColor: Colors.teal.shade800),
         ],
       ),
