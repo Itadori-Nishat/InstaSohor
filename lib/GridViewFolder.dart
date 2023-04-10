@@ -2,15 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:untitledsadfawdsfdfasdf/EditPage_ui/Edit%20profile.dart';
-import 'package:untitledsadfawdsfdfasdf/EditPage_ui/reqwsfgfg.dart';
 import 'package:untitledsadfawdsfdfasdf/ShareProfile_qr%20code.dart';
 
 
 class GridViewPage extends StatelessWidget {
-  String name;
-  GridViewPage({Key? key, required this.name}) : super(key: key);
-  final String img = "Assets/img5.jpg";
-  final hightlightList = List<String>.generate(10, (i) => "Name ${i + 1}");
+  Image? userimg;
+  String? username;
+  String? nickname;
+  String? bio;
+  GridViewPage({Key? key, this.username, this.nickname, this.bio,this.userimg}) : super(key: key);
+
+  final hightlightList = List<String>.generate(10, (i) => "highlight name ${i + 1}");
+  Image? image = Image.asset("Assets/img10.jpg");
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +27,7 @@ class GridViewPage extends StatelessWidget {
           children: [
             Icon(Icons.lock_outline, color: Colors.black, size: 18,),
             SizedBox(width: 5,),
-            Text(name, style: TextStyle(
+            Text("${(username)}", style: TextStyle(
                 color: Colors.black,
                 fontWeight: FontWeight.w600
             ),),
@@ -51,9 +54,19 @@ class GridViewPage extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                CircleAvatar(
-                  radius: 40,
-                  backgroundImage: AssetImage(img),
+                Container(
+                  height: 80,
+                  width: 80,
+                  decoration: BoxDecoration(
+                    color: Colors.grey.withOpacity(0.2),
+                      shape: BoxShape.circle
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(50),
+                    child: userimg != null
+                        ? userimg
+                        : image,
+                  ),
                 ),
                 Column(
                   children: [
@@ -84,22 +97,29 @@ class GridViewPage extends StatelessWidget {
                 ),
               ],
             ),
-            ///Name-Bio-Add link
+            ///username-Bio-Add link
             Padding(
               padding: const EdgeInsets.all(10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('nick name', style: TextStyle(
+                  if(nickname!=null)
+                  Text(nickname ?? '', style: TextStyle(
                     fontWeight: FontWeight.w500,
                     fontSize: 16
                   ),),
                   SizedBox(height: 5,),
-                  Text("", style: TextStyle(
+                  if(bio!=null)
+                  Text(bio ??'', style: TextStyle(
                     color: Colors.black
                   ),),
-                  SizedBox(height: 5,),
-                  Text("Link here")
+
+                  ///Add link
+                  // if(addLink!=null)
+                  // SizedBox(height: 5,),
+                  // Text("${addLink}", style: TextStyle(
+                  //   color: Colors.blue
+                  // ),)
                 ],
               ),
             ),
@@ -125,7 +145,7 @@ class GridViewPage extends StatelessWidget {
 
                 ///Share profile button
                 ElevatedButton(onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => QrCode()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => QrCode(usernameQr: username.toString(),)));
                 },
                   style: ButtonStyle(
                       foregroundColor: MaterialStatePropertyAll(Colors.black),
@@ -199,7 +219,7 @@ class GridViewPage extends StatelessWidget {
                   Row(
                     children: List.generate(hightlightList.length, (index) {
                       return Padding(
-                        padding: const EdgeInsets.only(left: 10.0),
+                        padding: const EdgeInsets.only(left: 15.0, top: 18, bottom: 18),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -235,22 +255,23 @@ class GridViewPage extends StatelessWidget {
             ),
 
             ///user posts
-            Expanded(
-              child: MasonryGridView.builder(
-                gridDelegate: SliverSimpleGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 3,),
-                itemCount: 12,
-                itemBuilder: (BuildContext context, int index) {
-                  return Padding(
-                    padding:  EdgeInsets.all(6.0),
-                    child: ClipRRect(
-                        borderRadius: BorderRadius.circular(5),
-                        child: Image.asset("Assets/img" + (index + 1).toString() + ".jpg")),
-                  );
-                },
-
-              ),
-            )],
+            // Expanded(
+            //   child: MasonryGridView.builder(
+            //     gridDelegate: SliverSimpleGridDelegateWithFixedCrossAxisCount(
+            //       crossAxisCount: 3,),
+            //     itemCount: 12,
+            //     itemBuilder: (BuildContext context, int index) {
+            //       return Padding(
+            //         padding:  EdgeInsets.all(6.0),
+            //         child: ClipRRect(
+            //             borderRadius: BorderRadius.circular(5),
+            //             child: Image.asset("Assets/img" + (index + 1).toString() + ".jpg")),
+            //       );
+            //     },
+            //
+            //   ),
+            // )
+          ],
         ),
       ),
     );

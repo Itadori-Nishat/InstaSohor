@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:untitledsadfawdsfdfasdf/GridViewFolder.dart';
-import 'package:untitledsadfawdsfdfasdf/Shake%20Home.dart';
+import 'package:flutter/services.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown
+  ]);
   runApp(const MyApp());
 }
 
@@ -12,11 +17,10 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    String?name;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home: GridViewPage(name: name.toString(),),
+      home: GridViewPage(),
     );
   }
 }
