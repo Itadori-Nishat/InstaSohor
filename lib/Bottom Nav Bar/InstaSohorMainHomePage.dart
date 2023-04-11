@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:untitledsadfawdsfdfasdf/Bottom%20Nav%20Bar/InstaHomePage.dart';
+import 'package:untitledsadfawdsfdfasdf/Bottom%20Nav%20Bar/Post%20Add.dart';
 import 'package:untitledsadfawdsfdfasdf/Bottom%20Nav%20Bar/ReelPage.dart';
+import 'package:untitledsadfawdsfdfasdf/Bottom%20Nav%20Bar/SearchPage.dart';
 import 'package:untitledsadfawdsfdfasdf/ProfilePages%20ui/ProfilePage.dart';
 
 class InstaSohorMainHomePage extends StatefulWidget {
@@ -19,6 +21,8 @@ class _InstaSohorMainHomePageState extends State<InstaSohorMainHomePage> {
   }
   final List _pages = [
     const InstaHomePage(),
+    const InstaSearchPage(),
+    const InstaPostAddPage(),
     const InstaReelPage(),
     ProfileGridViewPage(),
 
@@ -30,12 +34,15 @@ class _InstaSohorMainHomePageState extends State<InstaSohorMainHomePage> {
       body: _pages[_currentPage],
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Colors.black,
+        unselectedItemColor: Colors.grey,
         currentIndex: _currentPage,
         onTap: _selectedPage,
         items: [
-          BottomNavigationBarItem(icon: const Icon(Icons.home, size: 25,), label: "Home", backgroundColor: Colors.black),
-          BottomNavigationBarItem(icon: const Icon(Icons.video_file_outlined, size: 25,), label: "Reel", backgroundColor: Colors.teal.shade400),
-          BottomNavigationBarItem(icon: const Icon(Icons.person, size: 25,), label: "Profile", backgroundColor: Colors.teal.shade800),
+          const BottomNavigationBarItem(icon: Icon(Icons.home, size: 25,), label: "Home",),
+          const BottomNavigationBarItem(icon: Icon(Icons.search, size: 25,), label: "Search",),
+          const BottomNavigationBarItem(icon: Icon(Icons.add, size: 25,), label: "Add",),
+          const BottomNavigationBarItem(icon: Icon(Icons.video_call, size: 25,), label: "Reel",),
+          const BottomNavigationBarItem(icon: Icon(Icons.person, size: 25,), label: "Profile",),
         ],
       ),
     );

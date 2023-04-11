@@ -15,8 +15,8 @@ class _InstaHomePageState extends State<InstaHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
+        backgroundColor: Colors.white,
+        elevation: 1,
         title: Text("Instasohor",style: GoogleFonts.pacifico(textStyle: TextStyle(
           color: Colors.black,
           fontSize: 28
@@ -35,6 +35,11 @@ class _InstaHomePageState extends State<InstaHomePage> {
           },
               icon: Icon(Icons.send, color: Colors.black,size: 28,))
         ],
+      ),
+      body: Center(
+        child: Text("Home",style: TextStyle(
+            fontSize: 30
+        ),),
       ),
     );
   }

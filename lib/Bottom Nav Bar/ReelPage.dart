@@ -11,10 +11,10 @@ class _InstaReelPageState extends State<InstaReelPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: PageView(
-        controller: PageController(
-          initialPage: 3
-        ),
+      body: Center(
+        child: Text("Reels here",style: TextStyle(
+            fontSize: 30
+        ),),
       ),
     );
   }
