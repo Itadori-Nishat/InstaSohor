@@ -145,7 +145,6 @@ class _PostDecorationUIState extends State<PostDecorationUI> {
                                 child: Image.asset("Assets/send_icon.png", height: 26,),
                               ),
                             )
-
                           ],
                         ),
                         IconButton(onPressed: (){
