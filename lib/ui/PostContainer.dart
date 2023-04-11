@@ -17,6 +17,7 @@ class _PostDecorationUIState extends State<PostDecorationUI> {
   bool _isFollowing = false;
   bool _isTappedIcon = false;
   bool _isTappedBookmark = false;
+  int likecount = 0;
   String comments = "BeautifulContains code to deal with internationalized/localized messages, "
       "date and number formatting and parsing, bi-directional text, and other internat"
       "ionalization issues.";
@@ -116,6 +117,7 @@ class _PostDecorationUIState extends State<PostDecorationUI> {
                               onTap: (){
                                 setState(() {
                                   _isTappedIcon = !_isTappedIcon;
+                                  likecount ++;
                                 });
                               },
                               child: Padding(
@@ -154,7 +156,7 @@ class _PostDecorationUIState extends State<PostDecorationUI> {
                       padding: const EdgeInsets.symmetric(vertical: 5.0),
                       child: Row(
                         children: [
-                          Text("99,70,362",style: TextStyle(
+                          Text("${likecount}",style: TextStyle(
                               fontSize: 15,
                               fontWeight: FontWeight.w500
                           ),),
