@@ -102,11 +102,15 @@ class _EditProfileState extends State<EditProfile> {
                   textCapitalization: TextCapitalization.sentences,
                   controller: _username,
                   validator: (value) {
+
                     if (value == null || value.isEmpty) {
                       return 'You must give username';
                     }
                     if (value.contains(' ')) {
                       return 'No spaces allowed in user name';
+                    }
+                    if (value.contains('-')) {
+                      return 'No - allowed in user name';
                     }
                     return null;
 

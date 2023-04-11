@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:untitledsadfawdsfdfasdf/ui/PostContainer.dart';
 
 class InstaHomePage extends StatefulWidget {
   const InstaHomePage({Key? key}) : super(key: key);
@@ -20,9 +22,17 @@ class _InstaHomePageState extends State<InstaHomePage> {
           fontSize: 28
         )),),
         actions: [
-          IconButton(onPressed: (){},
+          IconButton(onPressed: (){
+            Fluttertoast.showToast(
+                msg: "Notification",
+              toastLength: Toast.LENGTH_SHORT,
+              backgroundColor: Colors.grey
+            );
+          },
               icon: Icon(Icons.favorite_border, color: Colors.black,size: 28,)),
-          IconButton(onPressed: (){},
+          IconButton(onPressed: (){
+            // Navigator.push(context, MaterialPageRoute(builder: (context) => PostDecorationUI()));
+          },
               icon: Icon(Icons.send, color: Colors.black,size: 28,))
         ],
       ),

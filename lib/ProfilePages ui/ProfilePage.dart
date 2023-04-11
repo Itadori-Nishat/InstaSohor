@@ -1,19 +1,22 @@
- import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import '../NetWorkImages.dart';
+import '../ui/PostContainer.dart';
 import 'EditPage_ui/Edit profile.dart';
 import 'ShareProfile_qr code.dart';
-
 
 class ProfileGridViewPage extends StatelessWidget {
   Image? userimg;
   String? username;
   String? nickname;
   String? bio;
-  ProfileGridViewPage({Key? key, this.username, this.nickname, this.bio,this.userimg}) : super(key: key);
+  ProfileGridViewPage(
+      {Key? key, this.username, this.nickname, this.bio, this.userimg})
+      : super(key: key);
 
   final hightlightList = List<String>.generate(10, (i) => "${i + 1}");
-  Image? image = Image.asset("Assets/img11.jpg", fit: BoxFit.cover,);
+  Image? image = Image.asset("Assets/img10.jpg",fit: BoxFit.cover,);
+  String temporaryname = 'mutso_kitadori';
 
   ImageFromNetworkData networkImages = ImageFromNetworkData();
   @override
@@ -26,24 +29,41 @@ class ProfileGridViewPage extends StatelessWidget {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Icon(Icons.lock_outline, color: Colors.black, size: 18,),
-            SizedBox(width: 5,),
-            Text("${(username)}", style: TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.w600
-            ),),
-            Icon(Icons.keyboard_arrow_down, color: Colors.black,),
+            Icon(
+              Icons.lock_outline,
+              color: Colors.black,
+              size: 18,
+            ),
+            SizedBox(
+              width: 5,
+            ),
+            Text(
+              temporaryname,
+              style:
+                  TextStyle(color: Colors.black, fontWeight: FontWeight.w600),
+            ),
+            Icon(
+              Icons.keyboard_arrow_down,
+              color: Colors.black,
+            ),
           ],
         ),
-
         ///Top Right Side buttons
         actions: [
           IconButton(
-              onPressed: () { },
-              icon: Icon(Icons.add_box_outlined, color: Colors.black, size: 28,)),
+              onPressed: () {},
+              icon: Icon(
+                Icons.add_box_outlined,
+                color: Colors.black,
+                size: 28,
+              )),
           IconButton(
-              onPressed: () { },
-            icon: Icon(Icons.menu_outlined, color: Colors.black, size: 28,)),
+              onPressed: () {},
+              icon: Icon(
+                Icons.menu_outlined,
+                color: Colors.black,
+                size: 28,
+              )),
         ],
       ),
       body: Column(
@@ -59,40 +79,40 @@ class ProfileGridViewPage extends StatelessWidget {
                   height: 80,
                   width: 80,
                   decoration: BoxDecoration(
-                    color: Colors.grey.withOpacity(0.2),
-                      shape: BoxShape.circle
-                  ),
+                      color: Colors.grey.withOpacity(0.2),
+                      shape: BoxShape.circle),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(50),
-                    child: userimg != null
-                        ? userimg
-                        : image ,
+                    child: userimg != null ? userimg : image,
                   ),
                 ),
                 Column(
                   children: [
-                    Text("${networkImages.ImagesNetwork.length}", style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18
-                    ),),
+                    Text(
+                      "${networkImages.ImagesNetwork.length}",
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                    ),
                     Text("Posts")
                   ],
                 ),
                 Column(
                   children: [
-                    Text("382", style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18
-                    ),),
+                    Text(
+                      "382",
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                    ),
                     Text("Followers")
                   ],
                 ),
                 Column(
                   children: [
-                    Text("452", style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18
-                    ),),
+                    Text(
+                      "452",
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                    ),
                     Text("Following")
                   ],
                 ),
@@ -105,16 +125,19 @@ class ProfileGridViewPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                if(nickname!=null)
-                Text(nickname ?? '', style: TextStyle(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 16
-                ),),
-                SizedBox(height: 5,),
-                if(bio!=null)
-                Text(bio ??'', style: TextStyle(
-                  color: Colors.black
-                ),),
+                if (nickname != null)
+                  Text(
+                    nickname ?? '',
+                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
+                  ),
+                SizedBox(
+                  height: 5,
+                ),
+                if (bio != null)
+                  Text(
+                    bio ?? '',
+                    style: TextStyle(color: Colors.black),
+                  ),
 
                 ///Add link
                 // if(addLink!=null)
@@ -130,44 +153,56 @@ class ProfileGridViewPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               ///Edit Profile button
-              ElevatedButton(onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => EditProfile()));
-              },
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => EditProfile()));
+                },
                 style: ButtonStyle(
-                  foregroundColor: MaterialStatePropertyAll(Colors.black),
-                  backgroundColor: MaterialStatePropertyAll(Colors.grey.shade300)
-                ),
+                    foregroundColor: MaterialStatePropertyAll(Colors.black),
+                    backgroundColor:
+                        MaterialStatePropertyAll(Colors.grey.shade300)),
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20.0),
                     child: Text("Edit Profile"),
                   ),
-                ),),
+                ),
+              ),
 
               ///Share profile button
-              ElevatedButton(onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => QrCode(usernameQr: username.toString(),)));
-              },
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => QrCode(
+                                usernameQr: username.toString(),
+                              )));
+                },
                 style: ButtonStyle(
                     foregroundColor: MaterialStatePropertyAll(Colors.black),
-                    backgroundColor: MaterialStatePropertyAll(Colors.grey.shade300)
-                ),
+                    backgroundColor:
+                        MaterialStatePropertyAll(Colors.grey.shade300)),
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
                     child: Text("Share Profile"),
                   ),
-                ),),
-              ElevatedButton(onPressed: (){
-                // Navigator.push(context, MaterialPageRoute(builder: (context) => MyPage()));
-              },
+                ),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  // Navigator.push(context, MaterialPageRoute(builder: (context) => MyPage()));
+                },
                 style: ButtonStyle(
                     foregroundColor: MaterialStatePropertyAll(Colors.black),
-                    backgroundColor: MaterialStatePropertyAll(Colors.grey.shade300)
-                ),
-                child: Icon(Icons.person_add),)
+                    backgroundColor:
+                        MaterialStatePropertyAll(Colors.grey.shade300)),
+                child: Icon(Icons.person_add),
+              )
             ],
           ),
           ///Add highlight
@@ -193,7 +228,6 @@ class ProfileGridViewPage extends StatelessWidget {
           //     ],
           //   ),
           // ),
-
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Padding(
@@ -208,13 +242,14 @@ class ProfileGridViewPage extends StatelessWidget {
                         width: 65,
                         decoration: BoxDecoration(
                             color: Colors.grey.shade300,
-                            shape: BoxShape.circle
-                        ),
+                            shape: BoxShape.circle),
                         child: Icon(Icons.add),
                       ),
-                      SizedBox(height: 5,),
+                      SizedBox(
+                        height: 5,
+                      ),
                       GestureDetector(
-                          onTap: (){
+                          onTap: () {
                             Fluttertoast.showToast(msg: "Added");
                           },
                           child: Text("Add new")),
@@ -223,7 +258,8 @@ class ProfileGridViewPage extends StatelessWidget {
                   Row(
                     children: List.generate(hightlightList.length, (index) {
                       return Padding(
-                        padding: const EdgeInsets.only(left: 15.0, top: 18, bottom: 18),
+                        padding: const EdgeInsets.only(
+                            left: 15.0, top: 18, bottom: 18),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -232,19 +268,24 @@ class ProfileGridViewPage extends StatelessWidget {
                               width: 65,
                               decoration: BoxDecoration(
                                   color: Colors.grey.shade300,
-                                  shape: BoxShape.circle
-                              ),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(50),
-                                child: Image.network(networkImages.ImagesNetwork[index], fit: BoxFit.cover,)),
+                                  shape: BoxShape.circle),
+                              child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(50),
+                                  child: Image.network(
+                                    networkImages.ImagesNetwork[index],
+                                    fit: BoxFit.cover,
+                                  )),
                             ),
                             SizedBox(
                               height: 5,
                             ),
                             SizedBox(
                                 width: 80,
-                                child: Text(hightlightList[index],textAlign: TextAlign.center,
-                                  overflow: TextOverflow.ellipsis,)),
+                                child: Text(
+                                  hightlightList[index],
+                                  textAlign: TextAlign.center,
+                                  overflow: TextOverflow.ellipsis,
+                                )),
                           ],
                         ),
                       );
@@ -254,12 +295,12 @@ class ProfileGridViewPage extends StatelessWidget {
               ),
             ),
           ),
-
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: Divider(thickness: 2,),
+            child: Divider(
+              thickness: 2,
+            ),
           ),
-
           ///user posts
           Expanded(
             child: GridView.builder(
@@ -271,11 +312,26 @@ class ProfileGridViewPage extends StatelessWidget {
                 return Padding(
                   padding: const EdgeInsets.all(1.0),
                   child: ClipRRect(
-                    borderRadius: BorderRadius.circular(2),
-                      child: Image.network(networkImages.ImagesNetwork[index],fit: BoxFit.cover,)),
+                      borderRadius: BorderRadius.circular(2),
+                      child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => PostDecorationUI(
+                                          indx: 0,
+                                          postUserName: temporaryname,
+                                          postUserImage:userimg != null ? userimg : image,
+                                      UserpostImage: networkImages
+                                              .ImagesNetwork[index],
+                                        )));
+                          },
+                          child: Image.network(
+                            networkImages.ImagesNetwork[index],
+                            fit: BoxFit.cover,
+                          ))),
                 );
               },
-
             ),
           )
         ],
