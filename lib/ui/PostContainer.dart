@@ -18,6 +18,16 @@ class _PostDecorationUIState extends State<PostDecorationUI> {
   bool _isTappedIcon = false;
   bool _isTappedBookmark = false;
   int likecount = 0;
+  void _toggleLike() {
+    setState(() {
+      _isTappedIcon = !_isTappedIcon;
+      if (_isTappedIcon) {
+        likecount++;
+      } else {
+        likecount--;
+      }
+    });
+  }
   String comments = "BeautifulContains code to deal with internationalized/localized messages, "
       "date and number formatting and parsing, bi-directional text, and other internat"
       "ionalization issues.";
@@ -114,14 +124,9 @@ class _PostDecorationUIState extends State<PostDecorationUI> {
                         Row(
                           children: [
                             GestureDetector(
-                              onTap: (){
-                                setState(() {
-                                  _isTappedIcon = !_isTappedIcon;
-                                  likecount ++;
-                                });
-                              },
+                              onTap: _toggleLike,
                               child: Padding(
-                                padding: const EdgeInsets.all(8.0),
+                                padding: const EdgeInsets.only(right: 8.0),
                                 child: Icon(_isTappedIcon?Icons.favorite:
                                 Icons.favorite_border, color: _isTappedIcon? Colors.red: Colors.black, size: 30,),
                               ),
