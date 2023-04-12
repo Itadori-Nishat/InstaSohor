@@ -23,8 +23,8 @@ class _InstaSohorMainHomePageState extends State<InstaSohorMainHomePage> {
     const InstaHomePage(),
     const InstaSearchPage(),
     const InstaPostAddPage(),
-    const InstaReelPage(),
-    ProfileGridViewPage(),
+     ShimmerLoadingProfilePage(),
+    const ShimmerLoadingProfilePage(),
 
   ];
 
