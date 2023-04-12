@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../ProfilePages ui/ProfilePage.dart';
-import 'Post Add.dart';
+import '../../ProfilePages ui/ProfilePage.dart';
+import 'ShimmerPreviewPage.dart';
 
 class ShimmerLoadingProfilePage extends StatefulWidget {
   const ShimmerLoadingProfilePage({Key? key}) : super(key: key);
@@ -26,7 +26,7 @@ class _ShimmerLoadingProfilePageState extends State<ShimmerLoadingProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _isLoading
-          ? InstaPostAddPage() // Show shimmer loading if still loading
+          ? ShimmerPreview() // Show shimmer loading if still loading
           : ProfileGridViewPage(), //,
     );
   }

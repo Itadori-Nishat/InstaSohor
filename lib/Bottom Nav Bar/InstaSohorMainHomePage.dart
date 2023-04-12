@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:untitledsadfawdsfdfasdf/Bottom%20Nav%20Bar/InstaHomePage.dart';
-import 'package:untitledsadfawdsfdfasdf/Bottom%20Nav%20Bar/Post%20Add.dart';
-import 'package:untitledsadfawdsfdfasdf/Bottom%20Nav%20Bar/ReelPage.dart';
 import 'package:untitledsadfawdsfdfasdf/Bottom%20Nav%20Bar/SearchPage.dart';
-import 'package:untitledsadfawdsfdfasdf/ProfilePages%20ui/ProfilePage.dart';
+import '../ProfilePages ui/Shimmer.Package/ShimmerPage.dart';
+import 'AddPost.dart';
+import 'ReelsPage.dart';
 
 class InstaSohorMainHomePage extends StatefulWidget {
   const InstaSohorMainHomePage({Key? key}) : super(key: key);
@@ -22,8 +22,8 @@ class _InstaSohorMainHomePageState extends State<InstaSohorMainHomePage> {
   final List _pages = [
     const InstaHomePage(),
     const InstaSearchPage(),
-    const InstaPostAddPage(),
-     ShimmerLoadingProfilePage(),
+    const AddPostPage(),
+    const InstaReelsPage(),
     const ShimmerLoadingProfilePage(),
 
   ];

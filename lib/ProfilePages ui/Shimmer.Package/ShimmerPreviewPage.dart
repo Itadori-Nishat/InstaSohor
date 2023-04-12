@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
-class InstaPostAddPage extends StatelessWidget {
-  const InstaPostAddPage({Key? key}) : super(key: key);
+class ShimmerPreview extends StatelessWidget {
+  const ShimmerPreview({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -56,69 +56,44 @@ class InstaPostAddPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
+                  SizedBox(height: 5,),
                   Container(
                     height: 80,
                     width: 80,
                     decoration: BoxDecoration(
-                        color: Colors.grey.withOpacity(0.2),
+                        color: Colors.grey.shade300,
                         shape: BoxShape.circle),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(50),
 
                     ),
                   ),
-                  Column(
-                    children: [
-                      Text(
-                        "",
-                        style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-                      ),
-                      Container(
-                        height: 30,
-                        width: 55,
-                        decoration: BoxDecoration(
-                            color: Colors.grey.shade300,
-                            borderRadius: BorderRadius.circular(2)
-                        ),
-                      ),
-                    ],
+                  Container(
+                    height: 30,
+                    width: 55,
+                    decoration: BoxDecoration(
+                        color: Colors.grey.shade300,
+                        borderRadius: BorderRadius.circular(2)
+                    ),
                   ),
-                  Column(
-                    children: [
-                      Text(
-                        "",
-                        style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-                      ),
-                      Container(
-                        height: 30,
-                        width: 70,
-                        decoration: BoxDecoration(
-                            color: Colors.grey.shade300,
-                            borderRadius: BorderRadius.circular(2)
-                        ),
-                      ),
-                    ],
+                  Container(
+                    height: 30,
+                    width: 70,
+                    decoration: BoxDecoration(
+                        color: Colors.grey.shade300,
+                        borderRadius: BorderRadius.circular(2)
+                    ),
                   ),
-                  Column(
-                    children: [
-                      Text(
-                        "",
-                        style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-                      ),
-                      Container(
-                        height: 30,
-                        width: 70,
-                        decoration: BoxDecoration(
-                            color: Colors.grey.shade300,
-                            borderRadius: BorderRadius.circular(2)
-                        ),
-                      ),
-                    ],
+                  Container(
+                    height: 30,
+                    width: 70,
+                    decoration: BoxDecoration(
+                        color: Colors.grey.shade300,
+                        borderRadius: BorderRadius.circular(2)
+                    ),
                   ),
                 ],
               ),

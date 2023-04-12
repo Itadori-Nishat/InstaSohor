@@ -107,10 +107,13 @@ class _PostDecorationUIState extends State<PostDecorationUI> {
                 ],
               ),
               SizedBox(height: 10,),
-              Container(
-                height: MediaQuery.of(context).size.height*0.65,
-                width: double.infinity,
-                child: Image.network("${widget.UserpostImage}",fit: BoxFit.cover,alignment: Alignment.center),
+              GestureDetector(
+                onDoubleTap: _toggleLike,
+                child: SizedBox(
+                  height: MediaQuery.of(context).size.height*0.65,
+                  width: double.infinity,
+                  child: Image.network("${widget.UserpostImage}",fit: BoxFit.cover,alignment: Alignment.center),
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 12.0, right: 10),
