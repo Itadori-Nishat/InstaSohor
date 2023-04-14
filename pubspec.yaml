@@ -29,6 +29,8 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  vibration: ^1.7.6
+  flutter_svg: ^2.0.4
   shimmer: ^2.0.0
   intl: ^0.18.0
   google_fonts: ^4.0.3
@@ -71,6 +73,9 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - Assets/
+    - Assets/google_logo.png
+    - Assets/facebook_logo.png
+    - Assets/apple_logo.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

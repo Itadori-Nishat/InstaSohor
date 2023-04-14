@@ -11,7 +11,10 @@ class ForgotPassword extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.grey.shade300,
       appBar: AppBar(
-        title: Text("Forgot Password"),
+        backgroundColor: Colors.grey.shade300,
+        title: Text("Forgot Password",style: TextStyle(
+          color: Colors.black
+        ),),
       ),
       body: Padding(
         padding: const EdgeInsets.all(15.0),
@@ -26,6 +29,8 @@ class ForgotPassword extends StatelessWidget {
             SizedBox(height: 20,),
             TextFormField(
               decoration: InputDecoration(
+                contentPadding:
+                EdgeInsets.symmetric(vertical: 12.0, horizontal: 8.0),
                 hintText: "Email",
                 filled: true,
                 fillColor: Colors.white,
@@ -53,7 +58,7 @@ class ForgotPassword extends StatelessWidget {
                   );
                 },
                 child: const Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding: EdgeInsets.all(2.0),
                   child: Text("Next",style: TextStyle(
                       fontSize: 19
                   ),),

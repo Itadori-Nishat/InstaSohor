@@ -40,25 +40,20 @@ class _SearchResultShowScaffoldState extends State<SearchResultShowScaffold> {
         ),
         backgroundColor: Colors.white,
         elevation: 4,
-        title: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10.0),
-          ),
-          child: TextFormField(
-            onChanged: (value){
-              setState(() {
-                userSearched = value;
-              });
-            },
-            controller: _controller,
-            style: const TextStyle(fontSize: 16.0),
-            decoration: const InputDecoration(
-              hintText: 'Search',
-              hintStyle: TextStyle(color: Colors.grey,fontSize: 19),
-              border: InputBorder.none,
-              contentPadding:
-                  EdgeInsets.symmetric(vertical: 12.0, horizontal: 8.0),
-            ),
+        title: TextFormField(
+          onChanged: (value){
+            setState(() {
+              userSearched = value;
+            });
+          },
+          controller: _controller,
+          style: const TextStyle(fontSize: 16.0),
+          decoration: const InputDecoration(
+            hintText: 'Search',
+            hintStyle: TextStyle(color: Colors.grey,fontSize: 19),
+            border: InputBorder.none,
+            contentPadding:
+                EdgeInsets.symmetric(vertical: 12.0, horizontal: 8.0),
           ),
         ),
       ),

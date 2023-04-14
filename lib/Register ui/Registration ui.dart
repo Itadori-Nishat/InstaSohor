@@ -3,15 +3,24 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:untitledsadfawdsfdfasdf/Register%20ui/Login%20ui.dart';
 
+import '../Bottom Nav Bar/HomeProperty/InboxProperty.dart';
+
 class RagistrationPage extends StatefulWidget {
-  const RagistrationPage({Key? key}) : super(key: key);
+  String? usernameRed;
+  String?emailReg;
+  String? passwordReg;
+  RagistrationPage({Key? key,this.usernameRed,this.emailReg, this.passwordReg}) : super(key: key);
 
   @override
   State<RagistrationPage> createState() => _RagistrationPageState();
 }
 
 class _RagistrationPageState extends State<RagistrationPage> {
+
   bool _obscuretext = true;
+  TextEditingController _userNamecontroller = TextEditingController();
+  TextEditingController _userEmailcontroller = TextEditingController();
+  TextEditingController _userPasscontroller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +36,11 @@ class _RagistrationPageState extends State<RagistrationPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(height: height*0.1,),
-                // Center(child: Image.asset("Assets/B2B.png",width: 100,)),
+                Center(child: Text("Instasohor",style: GoogleFonts.pacifico(textStyle: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 40
+                )),)),
                 Row(
                   children: [
                     Text("already have an account?",
@@ -49,8 +62,11 @@ class _RagistrationPageState extends State<RagistrationPage> {
                 ///user FirstName section
                 const SizedBox(height: 30,),
                 TextFormField(
+                  controller: _userNamecontroller,
                   decoration: InputDecoration(
-                    hintText: "First Name",
+                    contentPadding:
+                    EdgeInsets.symmetric(vertical: 12.0, horizontal: 8.0),
+                    hintText: "Userame",
                     filled: true,
                     fillColor: Colors.white,
                     enabledBorder: const OutlineInputBorder(
@@ -68,8 +84,11 @@ class _RagistrationPageState extends State<RagistrationPage> {
                 ///user Email section
                 const SizedBox(height: 15,),
                 TextFormField(
+                  controller: _userEmailcontroller,
                   keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
+                    contentPadding:
+                    EdgeInsets.symmetric(vertical: 12.0, horizontal: 8.0),
                     hintText: "Email",
                     filled: true,
                     fillColor: Colors.white,
@@ -88,9 +107,12 @@ class _RagistrationPageState extends State<RagistrationPage> {
                 ///user Password section
                 const SizedBox(height: 15,),
                 TextFormField(
+                  controller: _userPasscontroller,
                   obscureText: _obscuretext,
                   keyboardType: TextInputType.visiblePassword,
                   decoration: InputDecoration(
+                    contentPadding:
+                    EdgeInsets.symmetric(vertical: 12.0, horizontal: 8.0),
                     hintText: "Password",
                     filled: true,
                     fillColor: Colors.white,
@@ -112,6 +134,8 @@ class _RagistrationPageState extends State<RagistrationPage> {
                   obscureText: _obscuretext,
                   keyboardType: TextInputType.visiblePassword,
                   decoration: InputDecoration(
+                    contentPadding:
+                    EdgeInsets.symmetric(vertical: 12.0, horizontal: 8.0),
                     suffixIcon: GestureDetector(
                       onTap: (){
                         setState(() {
@@ -144,7 +168,7 @@ class _RagistrationPageState extends State<RagistrationPage> {
                       Fluttertoast.showToast(msg: "Account has been created");
                     },
                     child: const Padding(
-                      padding: EdgeInsets.all(8.0),
+                      padding: EdgeInsets.all(2.0),
                       child: Text("Create account",style: TextStyle(
                           fontSize: 19
                       ),),
@@ -162,19 +186,18 @@ class _RagistrationPageState extends State<RagistrationPage> {
                   ),
                 ),
                 SizedBox(height: 20,),
-                Column(
+                Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("By singning up to New App, you agree to our", style: GoogleFonts.anaheim(textStyle: TextStyle(
-                        fontSize: 19,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.black.withOpacity(.7),
-                        letterSpacing: .5
-                    ),), ),
-                    TextButton(
-                      onPressed: (){
-                        // Navigator.push(context, MaterialPageRoute(builder: (context) => TermsAndCondition()));
-                      },
+                    Expanded(
+                      child: Text("By singning up to New App, you agree to our", style: GoogleFonts.anaheim(textStyle: TextStyle(
+                          fontSize: 19,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black.withOpacity(.7),
+                          letterSpacing: .5
+                      ),), ),
+                    ),
+                    Expanded(
                       child: Text("Terms and conditions",style: GoogleFonts.anaheim(textStyle: TextStyle(
                         color: Color.fromARGB(255, 14, 131, 136),
                         fontWeight: FontWeight.w600,

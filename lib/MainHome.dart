@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:untitledsadfawdsfdfasdf/Bottom%20Nav%20Bar/InstaHomePage.dart';
+import 'package:untitledsadfawdsfdfasdf/Bottom%20Nav%20Bar/HomeProperty/InstaHomePage.dart';
 import 'package:untitledsadfawdsfdfasdf/Bottom%20Nav%20Bar/SearchProperty/SearchPage.dart';
-import '../ProfilePages ui/Shimmer.Package/ShimmerPage.dart';
-import 'AddPost.dart';
-import 'ReelsPage.dart';
+import 'ProfilePages ui/Shimmer.Package/ShimmerPage.dart';
+import 'Bottom Nav Bar/AddPost.dart';
+import 'Bottom Nav Bar/ReelsPage.dart';
 
 class InstaSohorMainHomePage extends StatefulWidget {
   const InstaSohorMainHomePage({Key? key}) : super(key: key);

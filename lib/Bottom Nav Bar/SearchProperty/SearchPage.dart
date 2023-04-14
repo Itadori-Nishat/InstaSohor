@@ -18,6 +18,7 @@ class _InstaSearchPageState extends State<InstaSearchPage> {
     // Navigator.push(context, MaterialPageRoute(builder: (context)=> SearchResultShowScaffold()));
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.white,
         elevation: 4,
         title: GestureDetector(
@@ -25,7 +26,7 @@ class _InstaSearchPageState extends State<InstaSearchPage> {
             Navigator.push(context, MaterialPageRoute(builder: (context)=> SearchResultShowScaffold()));
           },
           child: Container(
-            height: MediaQuery.of(context).size.height*0.05,
+            height: MediaQuery.of(context).size.height*0.04,
             width: double.infinity,
             decoration: BoxDecoration(
               boxShadow: [
