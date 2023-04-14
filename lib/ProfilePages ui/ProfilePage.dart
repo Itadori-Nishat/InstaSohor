@@ -1,7 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:untitledsadfawdsfdfasdf/ProfilePages%20ui/showmodelbottomsheet.dart';
 import '../Data_Brain/NetWorkImages.dart';
+import '../ui/BottomSheetContainer.dart';
 import '../ui/PostContainer.dart';
 import 'EditPage_ui/Edit profile.dart';
 import 'ShareProfile_qr code.dart';
@@ -59,7 +61,15 @@ class ProfileGridViewPage extends StatelessWidget {
                 size: 28,
               )),
           IconButton(
-              onPressed: () {},
+              onPressed: () {
+                showModalBottomSheet(
+                  shape: RoundedRectangleBorder(borderRadius:
+                  BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20))),
+                    context: context,
+                  builder: (BuildContext context) {
+                      return BottomSheetContainerpage();
+                  }, );
+              },
               icon: Icon(
                 Icons.menu_outlined,
                 color: Colors.black,
@@ -190,7 +200,8 @@ class ProfileGridViewPage extends StatelessWidget {
               ),
               ElevatedButton(
                 onPressed: () {
-                  // Navigator.push(context, MaterialPageRoute(builder: (context) => MyPage()));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => ShowmodelBottomSheet()));
                 },
                 style: ButtonStyle(
                     foregroundColor: MaterialStatePropertyAll(Colors.black),
@@ -254,7 +265,7 @@ class ProfileGridViewPage extends StatelessWidget {
                     children: List.generate(hightlightList.length, (index) {
                       return Padding(
                         padding: const EdgeInsets.only(
-                            left: 15.0, top: 18, bottom: 18),
+                            left: 10.0, top: 18, bottom: 18),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -266,9 +277,9 @@ class ProfileGridViewPage extends StatelessWidget {
                                   shape: BoxShape.circle),
                               child: ClipRRect(
                                   borderRadius: BorderRadius.circular(50),
-                                  child: Image.network(
-                                    networkImages.ImagesNetwork[index],
+                                  child: CachedNetworkImage(
                                     fit: BoxFit.cover,
+                                    imageUrl: networkImages.ImagesNetwork[index],
                                   )),
                             ),
                             SizedBox(
