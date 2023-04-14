@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import '../NetWorkImages.dart';
+import '../Data_Brain/NetWorkImages.dart';
 import '../ui/PostContainer.dart';
 import 'EditPage_ui/Edit profile.dart';
 import 'ShareProfile_qr code.dart';
@@ -164,10 +164,7 @@ class ProfileGridViewPage extends StatelessWidget {
                         MaterialStatePropertyAll(Colors.grey.shade300)),
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                    child: Text("Edit Profile"),
-                  ),
+                  child: Text("Edit Profile"),
                 ),
               ),
 
@@ -187,10 +184,7 @@ class ProfileGridViewPage extends StatelessWidget {
                         MaterialStatePropertyAll(Colors.grey.shade300)),
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                    child: Text("Share Profile"),
-                  ),
+                  child: Text("Share Profile"),
                 ),
               ),
               ElevatedButton(

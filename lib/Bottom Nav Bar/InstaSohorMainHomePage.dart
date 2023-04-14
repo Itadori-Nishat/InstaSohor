@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:untitledsadfawdsfdfasdf/Bottom%20Nav%20Bar/InstaHomePage.dart';
-import 'package:untitledsadfawdsfdfasdf/Bottom%20Nav%20Bar/SearchPage.dart';
+import 'package:untitledsadfawdsfdfasdf/Bottom%20Nav%20Bar/SearchProperty/SearchPage.dart';
 import '../ProfilePages ui/Shimmer.Package/ShimmerPage.dart';
 import 'AddPost.dart';
 import 'ReelsPage.dart';
