@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import '../Data_Brain/NetWorkImages.dart';
@@ -320,10 +321,10 @@ class ProfileGridViewPage extends StatelessWidget {
                                               .ImagesNetwork[index],
                                         )));
                           },
-                          child: Image.network(
-                            networkImages.ImagesNetwork[index],
-                            fit: BoxFit.cover,
-                          ))),
+                          child: CachedNetworkImage(
+                            key: UniqueKey(),
+                              fit: BoxFit.cover,
+                              imageUrl: "${networkImages.ImagesNetwork[index]}"))),
                 );
               },
             ),

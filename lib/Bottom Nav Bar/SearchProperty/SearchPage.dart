@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:untitledsadfawdsfdfasdf/Bottom%20Nav%20Bar/SearchProperty/SearchResultPage.dart';
 import '../../Data_Brain/NetWorkImages.dart';
@@ -18,7 +19,7 @@ class _InstaSearchPageState extends State<InstaSearchPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        elevation: 1,
+        elevation: 4,
         title: GestureDetector(
           onTap: (){
             Navigator.push(context, MaterialPageRoute(builder: (context)=> SearchResultShowScaffold()));
@@ -72,14 +73,10 @@ class _InstaSearchPageState extends State<InstaSearchPage> {
           mainAxisSpacing: 2.0,
         ),
         itemBuilder: (BuildContext context, int index) {
-          return Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: NetworkImage(netImg.ImagesNetwork[index]), // Load image from URL
-                fit: BoxFit.cover,
-              ),
-            ),
-          );
+          return CachedNetworkImage(
+              errorWidget: (context, url, error) => Icon(Icons.error),
+              fit: BoxFit.cover,
+              imageUrl: '${netImg.ImagesNetwork[index]}');
         },
       ),
     );

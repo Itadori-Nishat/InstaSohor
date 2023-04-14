@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:untitledsadfawdsfdfasdf/Data_Brain/NetWorkImages.dart';
 
@@ -37,11 +38,10 @@ class _SearchResultShowScaffoldState extends State<SearchResultShowScaffold> {
             color: Colors.black,
           ),
         ),
-        backgroundColor: Colors.grey.shade300,
+        backgroundColor: Colors.white,
         elevation: 4,
         title: Container(
           decoration: BoxDecoration(
-            color: Colors.grey.shade300,
             borderRadius: BorderRadius.circular(10.0),
           ),
           child: TextFormField(
@@ -54,8 +54,7 @@ class _SearchResultShowScaffoldState extends State<SearchResultShowScaffold> {
             style: const TextStyle(fontSize: 16.0),
             decoration: const InputDecoration(
               hintText: 'Search',
-              hintStyle: TextStyle(color: Colors.grey),
-              prefixIcon: Icon(Icons.search),
+              hintStyle: TextStyle(color: Colors.grey,fontSize: 19),
               border: InputBorder.none,
               contentPadding:
                   EdgeInsets.symmetric(vertical: 12.0, horizontal: 8.0),
@@ -69,9 +68,15 @@ class _SearchResultShowScaffoldState extends State<SearchResultShowScaffold> {
           return Card(
             child: Padding(
               padding: const EdgeInsets.all(12.0),
-              child: Text(searchFilter[index], style: TextStyle(
-                fontSize: 17
-              ),),
+              child: SizedBox(
+                child: Row(
+                  children: [
+                    Text(searchFilter[index], style: TextStyle(
+                      fontSize: 18
+                    ),),
+                  ],
+                ),
+              ),
             ),
           );
         },
@@ -79,4 +84,3 @@ class _SearchResultShowScaffoldState extends State<SearchResultShowScaffold> {
     );
   }
 }
-
