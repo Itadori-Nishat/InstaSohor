@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'package:untitledsadfawdsfdfasdf/Data_Brain/UserdataProvider.dart';
 
 import '../MainHome.dart';
 import '../ui/InboxDecorationProperty.dart';
@@ -20,7 +22,8 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController  _passwordController = TextEditingController();
 
 
-
+  String name = "";
+  String email = "";
 
   @override
   Widget build(BuildContext context) {
@@ -55,6 +58,9 @@ class _LoginPageState extends State<LoginPage> {
                   TextFormField(
                     controller: _emailController,
                     keyboardType: TextInputType.emailAddress,
+                    onChanged: (value) {
+                      name = value;
+                    },
                     decoration: InputDecoration(
                       contentPadding:
                       EdgeInsets.symmetric(vertical: 12.0, horizontal: 8.0),
@@ -125,6 +131,7 @@ class _LoginPageState extends State<LoginPage> {
                     width: double.infinity,
                     child: TextButton(
                       onPressed: (){
+                        context.read<USERDATAPROVIDER>().updateUi(name, email);
                         Navigator.push(context, MaterialPageRoute(builder: (context) => InstaSohorMainHomePage()));
                       },
                       child: const Padding(

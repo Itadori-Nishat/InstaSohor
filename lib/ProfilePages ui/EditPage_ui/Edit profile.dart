@@ -48,7 +48,7 @@ class _EditProfileState extends State<EditProfile> {
                 if(_formKey.currentState!.validate()) {
                   Navigator.push(
                       context, MaterialPageRoute(builder: (context) =>
-                      ProfileGridViewPage(username: _username.text,userimg: image,)));
+                      ProfileGridViewPage(userimg: image,)));
                 }
 
               },

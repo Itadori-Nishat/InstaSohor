@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:untitledsadfawdsfdfasdf/Bottom%20Nav%20Bar/HomeProperty/user_Inbox.dart';
+import '../../Data_Brain/UserdataProvider.dart';
 import '../../ui/InboxDecorationProperty.dart';
 import 'inboxSearchResult.dart';
 
@@ -20,9 +22,18 @@ class _InstaInboxPageState extends State<InstaInboxPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: Text("username", style: TextStyle(
-          color: Colors.black
-        ),),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Text(context.watch<USERDATAPROVIDER>().userNameProv, style: TextStyle(
+              color: Colors.black
+            ),),
+            Icon(
+              Icons.keyboard_arrow_down,
+              color: Colors.black,
+            ),
+          ],
+        ),
         leading: IconButton(
           onPressed: (){
             Navigator.pop(context);

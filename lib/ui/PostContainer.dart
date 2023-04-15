@@ -58,7 +58,7 @@ class _PostDecorationUIState extends State<PostDecorationUI> {
                 children: [
                   GestureDetector(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => ProfileGridViewPage(username: widget.postUserName, userimg: widget.postUserImage,)));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => ProfileGridViewPage(userimg: widget.postUserImage,)));
                     },
                     child: Row(
                       children: [

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
+import 'package:untitledsadfawdsfdfasdf/Data_Brain/UserdataProvider.dart';
 import 'package:untitledsadfawdsfdfasdf/Register%20ui/Login%20ui.dart';
+import 'package:path_provider/path_provider.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -8,7 +11,9 @@ void main() {
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown
   ]);
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider(
+      create: (BuildContext context) => USERDATAPROVIDER(),
+      child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {

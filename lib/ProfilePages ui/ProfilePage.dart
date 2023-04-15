@@ -1,8 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:provider/provider.dart';
 import 'package:untitledsadfawdsfdfasdf/ProfilePages%20ui/showmodelbottomsheet.dart';
 import '../Data_Brain/NetWorkImages.dart';
+import '../Data_Brain/UserdataProvider.dart';
 import '../ui/BottomSheetContainer.dart';
 import '../ui/PostContainer.dart';
 import 'EditPage_ui/Edit profile.dart';
@@ -10,16 +12,14 @@ import 'ShareProfile_qr code.dart';
 
 class ProfileGridViewPage extends StatelessWidget {
   Image? userimg;
-  String? username;
   String? nickname;
   String? bio;
   ProfileGridViewPage(
-      {Key? key, this.username, this.nickname, this.bio, this.userimg})
+      {Key? key, this.nickname, this.bio, this.userimg})
       : super(key: key);
 
   final hightlightList = List<String>.generate(10, (i) => "${i + 1}");
   Image? image = Image.asset("Assets/img10.jpg",fit: BoxFit.cover,);
-  String temporaryname = 'mutso_kitadori';
 
   ImageFromNetworkData networkImages = ImageFromNetworkData();
   @override
@@ -41,7 +41,7 @@ class ProfileGridViewPage extends StatelessWidget {
               width: 5,
             ),
             Text(
-              temporaryname,
+              context.watch<USERDATAPROVIDER>().userNameProv,
               style:
                   TextStyle(color: Colors.black, fontWeight: FontWeight.w600),
             ),
@@ -186,7 +186,7 @@ class ProfileGridViewPage extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                           builder: (context) => QrCode(
-                                usernameQr: username.toString(),
+                                usernameQr: context.watch<USERDATAPROVIDER>().userNameProv.toString(),
                               )));
                 },
                 style: ButtonStyle(
@@ -326,7 +326,7 @@ class ProfileGridViewPage extends StatelessWidget {
                                 MaterialPageRoute(
                                     builder: (context) => PostDecorationUI(
                                           indx: 0,
-                                          postUserName: temporaryname,
+                                          postUserName: context.watch<USERDATAPROVIDER>().userNameProv,
                                           postUserImage:userimg != null ? userimg : image,
                                       UserpostImage: networkImages
                                               .ImagesNetwork[index],

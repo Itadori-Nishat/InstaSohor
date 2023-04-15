@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:untitledsadfawdsfdfasdf/Bottom%20Nav%20Bar/HomeProperty/InboxProperty.dart';
+import 'package:untitledsadfawdsfdfasdf/Data_Brain/UserdataProvider.dart';
 import 'package:untitledsadfawdsfdfasdf/ui/InboxDecorationProperty.dart';
 
 class InstaHomePage extends StatefulWidget {
@@ -36,7 +38,9 @@ class _InstaHomePageState extends State<InstaHomePage> {
               child: Image.asset("Assets/chat_icon.png"))
         ],
       ),
-      body: Column(),
+      body: Column(
+        children: [],
+      ),
     );
   }
 }
