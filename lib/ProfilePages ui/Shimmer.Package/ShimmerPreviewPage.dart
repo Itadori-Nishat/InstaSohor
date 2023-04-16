@@ -53,27 +53,28 @@ class ShimmerPreview extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            Center(
+              child: Container(
+                height: 80,
+                width: 80,
+                decoration: BoxDecoration(
+                    color: Colors.grey.shade300,
+                    shape: BoxShape.circle),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(50),
+
+                ),
+              ),
+            ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  SizedBox(height: 5,),
-                  Container(
-                    height: 80,
-                    width: 80,
-                    decoration: BoxDecoration(
-                        color: Colors.grey.shade300,
-                        shape: BoxShape.circle),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(50),
-
-                    ),
-                  ),
                   Container(
                     height: 30,
-                    width: 55,
+                    width: 70,
                     decoration: BoxDecoration(
                         color: Colors.grey.shade300,
                         borderRadius: BorderRadius.circular(2)
@@ -119,14 +120,6 @@ class ShimmerPreview extends StatelessWidget {
                 Container(
                   height: 38,
                   width: 130,
-                  decoration: BoxDecoration(
-                      color: Colors.grey.shade300,
-                      borderRadius: BorderRadius.circular(2)
-                  ),
-                ),
-                Container(
-                  height: 38,
-                  width: 60,
                   decoration: BoxDecoration(
                       color: Colors.grey.shade300,
                       borderRadius: BorderRadius.circular(2)

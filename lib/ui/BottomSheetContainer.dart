@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:untitledsadfawdsfdfasdf/ProfilePages%20ui/ProfileSettings_bottomSheets/Bottomsheet_Settings.dart';
+import 'package:untitledsadfawdsfdfasdf/Register%20ui/Login%20ui.dart';
 
 import '../ProfilePages ui/ShareProfile_qr code.dart';
 
@@ -75,7 +76,9 @@ class _BottomSheetContainerpageState extends State<BottomSheetContainerpage> {
               ),
             ),
             TextButton(
-              onPressed: (){},
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+              },
               child: Row(
                 children: [
                   Icon(Icons.logout, color: Colors.red,),
@@ -95,4 +98,5 @@ class _BottomSheetContainerpageState extends State<BottomSheetContainerpage> {
     );
   }
 }
+
 
