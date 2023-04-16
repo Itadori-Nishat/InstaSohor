@@ -195,9 +195,7 @@ class ProfileGridViewPage extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => QrCode(
-                                      usernameQr: context.watch<USERDATAPROVIDER>().userNameProv.toString(),
-                                    )));
+                                builder: (context) => QrCode()));
                       },
                       style: ButtonStyle(
                           foregroundColor: MaterialStatePropertyAll(Colors.black),

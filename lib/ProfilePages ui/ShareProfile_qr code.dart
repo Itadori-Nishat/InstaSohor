@@ -1,10 +1,11 @@
+import 'package:provider/provider.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:untitledsadfawdsfdfasdf/Data_Brain/UserdataProvider.dart';
 
 class QrCode extends StatelessWidget {
-  String? usernameQr;
-  QrCode({Key? key, this.usernameQr}) : super(key: key);
+  QrCode({Key? key,}) : super(key: key);
 
 
   Color color1 = Color(0xFFE06A7E);
@@ -89,7 +90,7 @@ class QrCode extends StatelessWidget {
                       ),
                       gapless: false,
                       backgroundColor: Colors.white,
-                      data: "www.instagram.com/"+usernameQr.toString(),
+                      data: "www.instagram.com/${context.watch<USERDATAPROVIDER>().userNameProv}",
                       version: QrVersions.auto,
                     ),
                   ),
