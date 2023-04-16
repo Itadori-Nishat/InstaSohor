@@ -26,7 +26,7 @@ class _InstaSearchPageState extends State<InstaSearchPage> {
             Navigator.push(context, MaterialPageRoute(builder: (context)=> SearchResultShowScaffold()));
           },
           child: Container(
-            height: MediaQuery.of(context).size.height*0.04,
+            height: MediaQuery.of(context).size.height*0.05,
             width: double.infinity,
             decoration: BoxDecoration(
               boxShadow: [

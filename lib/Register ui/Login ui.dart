@@ -24,6 +24,7 @@ class _LoginPageState extends State<LoginPage> {
 
   String name = "";
   String email = "";
+  String phone = "";
 
   @override
   Widget build(BuildContext context) {
@@ -131,7 +132,6 @@ class _LoginPageState extends State<LoginPage> {
                     width: double.infinity,
                     child: TextButton(
                       onPressed: (){
-                        context.read<USERDATAPROVIDER>().updateUi(name, email);
                         Navigator.push(context, MaterialPageRoute(builder: (context) => InstaSohorMainHomePage()));
                       },
                       child: const Padding(

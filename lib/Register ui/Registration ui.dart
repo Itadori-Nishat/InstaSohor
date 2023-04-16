@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'package:untitledsadfawdsfdfasdf/Bottom%20Nav%20Bar/HomeProperty/InstaHomePage.dart';
 import 'package:untitledsadfawdsfdfasdf/Register%20ui/Login%20ui.dart';
 
 import '../Bottom Nav Bar/HomeProperty/InboxProperty.dart';
+import '../Data_Brain/UserdataProvider.dart';
 
 class RagistrationPage extends StatefulWidget {
-  String? usernameRed;
-  String?emailReg;
-  String? passwordReg;
-  RagistrationPage({Key? key,this.usernameRed,this.emailReg, this.passwordReg}) : super(key: key);
+  RagistrationPage({Key? key}) : super(key: key);
 
   @override
   State<RagistrationPage> createState() => _RagistrationPageState();
@@ -21,6 +21,10 @@ class _RagistrationPageState extends State<RagistrationPage> {
   TextEditingController _userNamecontroller = TextEditingController();
   TextEditingController _userEmailcontroller = TextEditingController();
   TextEditingController _userPasscontroller = TextEditingController();
+
+  String nameReg = "";
+  String emailReg = "";
+  String phoneReg = "";
 
   @override
   Widget build(BuildContext context) {
@@ -62,6 +66,9 @@ class _RagistrationPageState extends State<RagistrationPage> {
                 ///user FirstName section
                 const SizedBox(height: 30,),
                 TextFormField(
+                  onChanged: (value) {
+                    nameReg = value;
+                  },
                   controller: _userNamecontroller,
                   decoration: InputDecoration(
                     contentPadding:
@@ -84,12 +91,40 @@ class _RagistrationPageState extends State<RagistrationPage> {
                 ///user Email section
                 const SizedBox(height: 15,),
                 TextFormField(
+                  onChanged: (value) {
+                    emailReg = value;
+                  },
                   controller: _userEmailcontroller,
                   keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
                     contentPadding:
                     EdgeInsets.symmetric(vertical: 12.0, horizontal: 8.0),
                     hintText: "Email",
+                    filled: true,
+                    fillColor: Colors.white,
+                    enabledBorder: const OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.transparent)
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.transparent)
+                    ),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10)
+                    ),
+                  ),
+                ),
+
+                ///user Phone section
+                const SizedBox(height: 15,),
+                TextFormField(
+                  onChanged: (value) {
+                    phoneReg = value;
+                  },
+                  keyboardType: TextInputType.phone,
+                  decoration: InputDecoration(
+                    contentPadding:
+                    EdgeInsets.symmetric(vertical: 12.0, horizontal: 8.0),
+                    hintText: "Phone",
                     filled: true,
                     fillColor: Colors.white,
                     enabledBorder: const OutlineInputBorder(
@@ -165,7 +200,8 @@ class _RagistrationPageState extends State<RagistrationPage> {
                   width: double.infinity,
                   child: TextButton(
                     onPressed: (){
-                      Fluttertoast.showToast(msg: "Account has been created");
+                      context.read<USERDATAPROVIDER>().updateUi(nameReg, emailReg, phoneReg);
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
                     },
                     child: const Padding(
                       padding: EdgeInsets.all(2.0),
