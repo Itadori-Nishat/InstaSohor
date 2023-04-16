@@ -1,6 +1,5 @@
 class USERNAME_IMAGE {
-  final String? Image;
-  final String? name;
+   String? Image;
+   String? name;
    USERNAME_IMAGE({ this.Image, this.name});
-
 }

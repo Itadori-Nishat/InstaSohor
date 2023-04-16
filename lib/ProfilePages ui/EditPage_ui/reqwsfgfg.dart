@@ -1,82 +1,42 @@
+import 'dart:io';
+import 'package:image_picker/image_picker.dart';
 import 'package:flutter/material.dart';
+class ImagePicker extends StatefulWidget {
+  const ImagePicker({Key? key}) : super(key: key);
 
-class FirstPage extends StatefulWidget {
   @override
-  _FirstPageState createState() => _FirstPageState();
+  State<ImagePicker> createState() => _ImagePickerState();
 }
 
-class _FirstPageState extends State<FirstPage> {
+class _ImagePickerState extends State<ImagePicker> {
 
-  String _dataFromSecondPage = '';
+  File? _ImagePicker;
 
-  void _handleDataFromSecondPage(String data) {
-    setState(() {
-      _dataFromSecondPage = data;
-    });
-  }
+  // cameraImage() async {
+  //   var imageCam = await ImagePicker.pickImage(source: ImageSource.camera);
+  // }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('First Page'),
+        title: Text("Image Picker"),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(_dataFromSecondPage),
-            ElevatedButton(
-              onPressed: () async {
-                final data = await Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => SecondPage(),
-                  ),
-                );
-                _handleDataFromSecondPage(data);
-              },
-              child: Text('Second Page data:'),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Center(
+            child: Container(
+              height: 300,
+              width: 300,
+              color: Colors.grey,
             ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-
-class SecondPage extends StatelessWidget {
-  final _textController = TextEditingController();
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          onPressed: (){Navigator.pop(context, _textController.text);}, icon: Icon(Icons.arrow_back_ios_outlined),
-        ),
-        title: Text('Second Page'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            TextField(
-              controller: _textController,
-              decoration: InputDecoration(
-                labelText: 'Enter data',
-                border: OutlineInputBorder(),
-              ),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pop(context, _textController.text);
-              },
-              child: Text('Return Data'),
-            ),
-          ],
-        ),
+          ),
+          ElevatedButton(onPressed: (){},
+              child: Text("Image from camera")),
+          ElevatedButton(onPressed: (){},
+              child: Text("Image from Gallary"))
+        ],
       ),
     );
   }

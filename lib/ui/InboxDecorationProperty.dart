@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:untitledsadfawdsfdfasdf/Data_Brain/Image_usernamesData.dart';
 
 class InboxDecoration extends StatefulWidget {
-  String? inboxImage;
-  String? InboxName;
-  InboxDecoration({Key? key, this.inboxImage, this.InboxName}) : super(key: key);
+  String InboxName;
+  String inboxImage;
+  InboxDecoration({Key? key, required this.inboxImage, required this.InboxName}) : super(key: key);
 
   @override
   State<InboxDecoration> createState() => _InboxDecorationState();
 }
 
 class _InboxDecorationState extends State<InboxDecoration> {
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -23,14 +25,14 @@ class _InboxDecorationState extends State<InboxDecoration> {
                 children: [
                   CircleAvatar(
                     radius: 30,
-                    backgroundImage: AssetImage("Assets/img11.jpg"),
+                    backgroundImage: NetworkImage(widget.inboxImage),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 15.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("Allen Masud", style: TextStyle(
+                        Text(widget.InboxName, style: TextStyle(
                           fontSize: 16
                         ),),
                         Text("Active", style: TextStyle(fontSize: 12),)

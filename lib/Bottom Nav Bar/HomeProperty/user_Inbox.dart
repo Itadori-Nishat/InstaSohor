@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -5,9 +6,12 @@ import 'package:vibration/vibration.dart';
 import 'package:flutter/services.dart';
 
 class ChatPage extends StatefulWidget {
-
+  String name;
+  String image;
   ChatPage({
     Key? key,
+    required this.name,
+    required this.image
   }) : super(key: key);
   @override
   _ChatPageState createState() => _ChatPageState();
@@ -20,82 +24,75 @@ class _ChatPageState extends State<ChatPage> {
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
     return Scaffold(
-      backgroundColor: Colors.white.withOpacity(0.2),
+      backgroundColor: Colors.grey.shade300,
       appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 1,
         automaticallyImplyLeading: false,
+        leading: IconButton(
+          onPressed: (){
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.arrow_back_rounded, color: Colors.black,),
+        ),
         title: Row(
           children: [
-            IconButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                icon: const Icon(
-                  Icons.arrow_back_rounded,
-                  size: 25,
-                )),
-            GestureDetector(
-              onTap: () {
-                Fluttertoast.showToast(
-                  msg: "Profile",
-                  toastLength: Toast.LENGTH_SHORT,
-                  backgroundColor: Colors.red,
-                );
-              },
-              child: Row(
-                children: [
-                  Stack(
+            Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(right: 8.0),
+                  child: Stack(
                     alignment: Alignment.bottomRight,
                     children: [
                       Container(
-                        margin: const EdgeInsets.symmetric(
-                          horizontal: 8,
-                        ),
                         height: 45,
                         width: 45,
                         decoration: const BoxDecoration(
                             color: Colors.grey, shape: BoxShape.circle),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(50),
-                          child: Image.asset("Assets/img1.jpg"),
+                          child: CachedNetworkImage(
+                              imageUrl:widget.image, fit: BoxFit.cover ),
                         ),
                       ),
                       Positioned(
-                        right: 5,
+                        right: 1,
                         bottom: 5,
+
                         child: Container(
                           height: 12,
                           width: 12,
                           decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               color: Colors.green,
-                              border: Border.all(color: Colors.black)),
+                              border: Border.all(color: Colors.grey)),
                         ),
                       )
                     ],
                   ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                        width: width * 0.3,
-                        child: Text('name',
-                          style: const TextStyle(
-                            fontSize: 17,
-                          ),
-                          maxLines: 1,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.3,
+                      child: Text(widget.name ?? '',
+                        style: const TextStyle(
+                          fontSize: 17,
+                          color: Colors.black
                         ),
+                        maxLines: 1,
                       ),
-                      Text(
-                        "Active now",
-                        style: TextStyle(
-                            fontSize: 12, color: Colors.white.withOpacity(0.5)),
-                      )
-                    ],
-                  )
-                ],
-              ),
+                    ),
+                    Text(
+                      "Active now",
+                      style: TextStyle(
+                          fontSize: 12, color: Colors.black45),
+                    )
+                  ],
+                )
+              ],
             ),
           ],
         ),
@@ -108,10 +105,10 @@ class _ChatPageState extends State<ChatPage> {
                   backgroundColor: Colors.red,
                 );
               },
-              icon: const Icon(Icons.call)),
+              icon: const Icon(Icons.call,color: Colors.black,)),
           IconButton(
               onPressed: ()  {},
-              icon: const Icon(Icons.video_call)),
+              icon: const Icon(Icons.video_call, color: Colors.black,)),
           IconButton(
               onPressed: () {
                 Fluttertoast.showToast(
@@ -120,16 +117,15 @@ class _ChatPageState extends State<ChatPage> {
                   backgroundColor: Colors.red,
                 );
               },
-              icon: const Icon(Icons.info)),
+              icon: const Icon(Icons.info, color: Colors.black,)),
         ],
-        backgroundColor: Colors.black,
       ),
+
       body: Column(
         children: [
           Expanded(
             child: ListView.builder(
               controller: ScrollController(),
-              reverse: true,
               physics: ScrollPhysics(),
               itemCount: _messages.length,
               itemBuilder: (BuildContext context, int index) {
@@ -140,7 +136,7 @@ class _ChatPageState extends State<ChatPage> {
                     children: [
                       Container(
                           padding: const EdgeInsets.all(10),
-                          margin: EdgeInsets.only(left: width * 0.15),
+                          margin: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.15),
                           decoration: const BoxDecoration(
                               color: Colors.grey,
                               borderRadius:
@@ -152,12 +148,12 @@ class _ChatPageState extends State<ChatPage> {
                                 context: context,
                                 builder: (BuildContext context) {
                                   return AlertDialog(
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(20)
+                                    ),
                                     backgroundColor: Colors.grey,
-                                    // title: Text("Delete Message", style: TextStyle(
-                                    //   color: Colors.white
-                                    // ),),
                                     title: Text(
-                                      "Are you sure you want to delete this message?",
+                                      "Unsend this message?",
                                       style: TextStyle(
                                           color: Colors.white, fontSize: 18),
                                     ),
@@ -233,7 +229,8 @@ class _ChatPageState extends State<ChatPage> {
                           width: 35,
                           decoration: BoxDecoration(
                               shape: BoxShape.circle,
-                              color: Colors.blue.shade400),
+                              color: Colors.grey.shade300),
+                          child: Icon(Icons.camera_alt_outlined,color: Colors.black,),
                         ),
                       ),
                     ),
@@ -276,7 +273,7 @@ class _ChatPageState extends State<ChatPage> {
                     height: 40,
                     width: 40,
                     decoration: BoxDecoration(
-                        shape: BoxShape.circle, color: Colors.grey.shade700),
+                        shape: BoxShape.circle, color: Colors.grey.shade400),
                     child: const Icon(
                       Icons.mic,
                       color: Colors.white,

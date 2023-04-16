@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:untitledsadfawdsfdfasdf/ProfilePages%20ui/EditPage_ui/reqwsfgfg.dart';
 import 'package:untitledsadfawdsfdfasdf/ProfilePages%20ui/ProfileSettings_bottomSheets/Bottomsheet_Settings.dart';
 import 'package:untitledsadfawdsfdfasdf/Register%20ui/Login%20ui.dart';
 
@@ -61,7 +62,9 @@ class _BottomSheetContainerpageState extends State<BottomSheetContainerpage> {
               ),
             ),
             TextButton(
-              onPressed: (){},
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => ImagePicker()));
+              },
               child: Row(
                 children: [
                   Icon(Icons.archive,color: Colors.black,),
