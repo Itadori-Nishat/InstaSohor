@@ -46,9 +46,7 @@ class _EditProfileState extends State<EditProfile> {
                 //     backgroundColor: Colors.grey,
                 //     content: Text("user name ( " + _username.text + " )has been set"), ),);
                 if(_formKey.currentState!.validate()) {
-                  Navigator.push(
-                      context, MaterialPageRoute(builder: (context) =>
-                      ProfileGridViewPage(userimg: image,)));
+                  Navigator.pop(context);
                 }
 
               },
@@ -168,3 +166,5 @@ class _EditProfileState extends State<EditProfile> {
     );
   }
 }
+
+
