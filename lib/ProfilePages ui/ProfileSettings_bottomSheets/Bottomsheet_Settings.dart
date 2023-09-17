@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:untitledsadfawdsfdfasdf/ProfilePages%20ui/ProfileSettings_bottomSheets/Personnal%20details%20data%20page.dart';
 
 class BottomSheetSettings extends StatelessWidget {
@@ -35,7 +36,7 @@ class BottomSheetSettings extends StatelessWidget {
                 Text("Your account", style: TextStyle(
                   color: Colors.grey
                 ),),
-                Text("beFair", style: TextStyle(
+                Text("nisHat", style: TextStyle(
                   color: Colors.grey
                 ),)
               ],
@@ -52,7 +53,9 @@ class BottomSheetSettings extends StatelessWidget {
                 children: [
                   InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => PersonalDetailsInfo()));
+                      Navigator.push(context, PageTransition(child: PersonalDetailsInfo(),
+                          duration: Duration(milliseconds: 200),
+                          type: PageTransitionType.bottomToTop));
                     },
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 12),
@@ -74,7 +77,11 @@ class BottomSheetSettings extends StatelessWidget {
                     ),
                   ),
                   InkWell(
-                    onTap: (){},
+                    onTap: (){
+                      // Navigator.push(context, PageTransition(child: BottomSheetSettings(),
+                      //     duration: Duration(milliseconds: 200),
+                      //     type: PageTransitionType.bottomToTop));
+                    },
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 12),
                       child: Row(

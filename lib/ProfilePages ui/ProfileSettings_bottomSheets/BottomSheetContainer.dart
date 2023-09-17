@@ -2,17 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:untitledsadfawdsfdfasdf/ProfilePages%20ui/EditPage_ui/reqwsfgfg.dart';
 import 'package:untitledsadfawdsfdfasdf/ProfilePages%20ui/ProfileSettings_bottomSheets/Bottomsheet_Settings.dart';
 import 'package:untitledsadfawdsfdfasdf/Register%20ui/Login%20ui.dart';
+import 'package:page_transition/page_transition.dart';
+import '../ShareProfile_qr code.dart';
 
-import '../ProfilePages ui/ShareProfile_qr code.dart';
-
-class BottomSheetContainerpage extends StatefulWidget {
+class BottomSheetContainerpage extends StatelessWidget {
   const BottomSheetContainerpage({Key? key}) : super(key: key);
 
-  @override
-  State<BottomSheetContainerpage> createState() => _BottomSheetContainerpageState();
-}
-
-class _BottomSheetContainerpageState extends State<BottomSheetContainerpage> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -29,7 +24,9 @@ class _BottomSheetContainerpageState extends State<BottomSheetContainerpage> {
           children: [
             TextButton(
               onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => BottomSheetSettings()));
+                Navigator.push(context, PageTransition(child: BottomSheetSettings(),
+                    duration: Duration(milliseconds: 200),
+                    type: PageTransitionType.bottomToTop));
               },
               child: Row(
                 children: [
@@ -46,7 +43,9 @@ class _BottomSheetContainerpageState extends State<BottomSheetContainerpage> {
             ),
             TextButton(
               onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => QrCode()));
+                Navigator.push(context, PageTransition(child: QrCode(),
+                    duration: Duration(milliseconds: 200),
+                    type: PageTransitionType.bottomToTop));
               },
               child: Row(
                 children: [

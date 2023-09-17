@@ -135,7 +135,7 @@ class _LoginPageState extends State<LoginPage> {
                         Navigator.push(context, MaterialPageRoute(builder: (context) => InstaSohorMainHomePage()));
                       },
                       child: const Padding(
-                        padding: EdgeInsets.all(2.0),
+                        padding: EdgeInsets.all(5.0),
                         child: Text("Sign in",style: TextStyle(
                             fontSize: 19
                         ),),

@@ -4,7 +4,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
 import '../Data_Brain/NetWorkImages.dart';
 import '../Data_Brain/UserdataProvider.dart';
-import '../ui/BottomSheetContainer.dart';
+import 'ProfileSettings_bottomSheets/BottomSheetContainer.dart';
 import '../ui/PostContainer.dart';
 import 'EditPage_ui/Edit profile.dart';
 import 'ShareProfile_qr code.dart';

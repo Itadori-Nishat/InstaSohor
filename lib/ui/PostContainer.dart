@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:untitledsadfawdsfdfasdf/ProfilePages%20ui/ProfilePage.dart';
+import 'package:untitledsadfawdsfdfasdf/ui/user%20comments%20page.dart';
 
 class PostDecorationUI extends StatefulWidget {
   String? postUserName;
@@ -131,11 +132,14 @@ class _PostDecorationUIState extends State<PostDecorationUI> {
                               child: Padding(
                                 padding: const EdgeInsets.only(right: 8.0),
                                 child: Icon(_isTappedIcon?Icons.favorite:
-                                Icons.favorite_border, color: _isTappedIcon? Colors.red: Colors.black, size: 30,),
+                                Icons.favorite_border,
+                                  color: _isTappedIcon? Colors.red: Colors.black, size: 30,),
                               ),
                             ),
                             GestureDetector(
-                              onTap: (){},
+                              onTap: (){
+                                Navigator.push(context, MaterialPageRoute(builder: (context) => CommentsPage()));
+                              },
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Image.asset("Assets/comment_icon.png", height: 26,),
